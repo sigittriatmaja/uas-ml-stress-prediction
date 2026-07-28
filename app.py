@@ -1,10 +1,13 @@
 import os
+from pathlib import Path
+
 import joblib
 import pandas as pd
 import streamlit as st
 
-MODEL_FILENAME = "random_forest_model.pkl"
-DATA_FILENAME = "student_lifestyle_dataset.csv"
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_FILENAME = BASE_DIR / "random_forest_model.pkl"
+DATA_FILENAME = BASE_DIR / "student_lifestyle_dataset.csv"
 
 st.set_page_config(
     page_title="Prediksi Tingkat Stres Mahasiswa",

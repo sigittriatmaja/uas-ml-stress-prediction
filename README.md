@@ -80,6 +80,28 @@ Aplikasi sekarang memiliki:
 - `train.py` juga menggunakan `stratify=y` untuk menjaga proporsi label.
 - Hasil pelatihan disimpan dalam `random_forest_model.pkl`.
 
+## Deploy ke Streamlit Community Cloud
+
+Proyek ini sudah siap untuk di-deploy ke Streamlit Community Cloud.
+
+### Langkah-langkah
+
+1. Push repo ini ke GitHub jika belum.
+2. Buka https://share.streamlit.io/.
+3. Klik "New app" lalu pilih repository GitHub Anda.
+4. Pilih branch `main`.
+5. Tentukan file utama sebagai `app.py`.
+6. Pilih Python version `3.10`.
+7. Tentukan file requirements sebagai `requirements.txt`.
+8. Klik "Deploy".
+
+### Nilai yang perlu diperhatikan
+
+- File utama aplikasi adalah [app.py](app.py).
+- File dependency ada di [requirements.txt](requirements.txt).
+- Dataset dan model sudah disertakan di repo sehingga aplikasi bisa berjalan tanpa langkah tambahan.
+- Jika deploy gagal karena dependency, cek kembali isi [requirements.txt](requirements.txt) dan pastikan versi paket kompatibel dengan Python 3.10.
+
 ## Menjalankan di Docker lokal
 
 Jika ingin mencoba container lokal:

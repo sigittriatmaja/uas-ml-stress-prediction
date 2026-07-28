@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import joblib
 import pandas as pd
 from sklearn.ensemble import RandomForestClassifier
@@ -6,8 +8,9 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
 
-MODEL_FILENAME = "random_forest_model.pkl"
-DATA_FILENAME = "student_lifestyle_dataset.csv"
+BASE_DIR = Path(__file__).resolve().parent
+MODEL_FILENAME = BASE_DIR / "random_forest_model.pkl"
+DATA_FILENAME = BASE_DIR / "student_lifestyle_dataset.csv"
 
 
 def load_dataset(path: str = DATA_FILENAME) -> pd.DataFrame:
