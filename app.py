@@ -42,6 +42,16 @@ def load_dataset(path: str = DATA_FILENAME) -> pd.DataFrame:
 @st.cache_resource
 def load_model(path: str = MODEL_FILENAME):
     if not os.path.exists(path):
+        try:
+            from train import train_and_save_model
+
+            train_and_save_model()
+        except Exception as exc:
+            raise FileNotFoundError(
+                "Model belum ditemukan dan pelatihan otomatis gagal. Jalankan `python train.py` terlebih dahulu."
+            ) from exc
+
+    if not os.path.exists(path):
         raise FileNotFoundError(
             "Model belum ditemukan. Jalankan `python train.py` terlebih dahulu."
         )
